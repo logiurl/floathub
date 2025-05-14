@@ -1,1 +1,1236 @@
-help
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloatHub - Help & Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2a69ac;
+            --primary-light: #4989cc;
+            --primary-dark: #1d4e82;
+            --secondary: #f5f7fa;
+            --text: #333;
+            --text-light: #666;
+            --text-lighter: #888;
+            --white: #ffffff;
+            --border: #e1e4e8;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--secondary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 6px 0;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--white) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-img {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+            animation: fadeInUp 1.2s ease, float 6s ease-in-out infinite;
+        }
+
+        .floating-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(42, 105, 172, 0.3);
+            z-index: 3;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .floating-icon.one {
+            top: 30%;
+            left: 10%;
+            animation-delay: 0.5s;
+        }
+
+        .floating-icon.two {
+            top: 15%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .floating-icon.three {
+            bottom: 20%;
+            right: 8%;
+            animation-delay: 1.5s;
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            transition: height 0.3s ease;
+        }
+
+        .feature-card:hover:before {
+            height: 8px;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: background-color 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background-color: rgba(42, 105, 172, 0.1);
+        }
+
+        .feature-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* Usage Guide */
+        .usage-guide {
+            padding: 100px 0;
+            background-color: var(--secondary);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background-color: var(--primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 40px);
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 40px);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 5px rgba(42, 105, 172, 0.2);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .timeline-content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .timeline-img {
+            width: 100%;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 16px;
+        }
+
+        .accordion-button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 20px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .accordion-button:hover {
+            color: var(--primary);
+        }
+
+        .accordion-button span {
+            transition: transform 0.3s;
+        }
+
+        .accordion-button.active span {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content p {
+            padding: 0 0 20px 0;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a2234;
+            color: var(--white);
+            padding: 60px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+        }
+
+        .footer-logo-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #c8d0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(42, 105, 172, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(42, 105, 172, 0.3);
+        }
+
+        /* Fancy animations for the demo section */
+        .demo-animation {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .demo-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(42, 105, 172, 0.3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .demo-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .demo-toolbar {
+            position: absolute;
+            width: 80px;
+            height: 300px;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            top: 50%;
+            left: 50%;
+            transform: translate(calc(-50% + 80px), -50%) scale(0.95);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+            padding: 16px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .demo-toolbar.active {
+            opacity: 1;
+            transform: translate(calc(-50% + 80px), -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        .demo-website {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .demo-website:hover {
+            background-color: #e1e4e8;
+        }
+
+        .demo-website svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+        }
+
+        .demo-frame {
+            position: absolute;
+            width: 220px;
+            height: 280px;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            top: 50%;
+            left: 50%;
+            transform: translate(calc(-50% - 30px), -50%) scale(0.9);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .demo-frame.active {
+            opacity: 1;
+            transform: translate(calc(-50% - 30px), -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        .demo-frame-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background-color: var(--secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .demo-frame-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .demo-frame-title svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--primary);
+        }
+
+        .demo-frame-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .demo-frame-button {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--text-lighter);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo-frame-button svg {
+            width: 12px;
+            height: 12px;
+            fill: white;
+        }
+
+        .demo-frame-content {
+            height: calc(100% - 44px);
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        @keyframes minimizeAnimation {
+            0% {
+                opacity: 1;
+                transform: translate(calc(-50% - 30px), -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(calc(-50% - 30px), 100%) scale(0.5);
+            }
+        }
+
+        .minimizing {
+            animation: minimizeAnimation 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline:before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 70px;
+                padding-right: 0;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">FloatHub</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#guide">User Guide</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="floating-icon one">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+            </svg>
+        </div>
+        <div class="floating-icon two">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+            </svg>
+        </div>
+        <div class="floating-icon three">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm1 17H7V4h10v14zm-3-4h-4v-2h4v2z"/>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to FloatHub</h1>
+                <p>The ultimate floating workspace for quick access to your favorite websites.</p>
+            </div>
+            <div class="demo-animation">
+                <div class="demo-icon" id="demo-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                </div>
+                <div class="demo-toolbar" id="demo-toolbar">
+                    <div class="demo-website" id="demo-website-1">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </div>
+                    <div class="demo-website" id="demo-website-2">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <div class="demo-website" id="demo-website-3">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="demo-frame" id="demo-frame">
+                    <div class="demo-frame-header">
+                        <div class="demo-frame-title">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                            <span>Search</span>
+                        </div>
+                        <div class="demo-frame-actions">
+                            <button class="demo-frame-button" id="demo-minimize">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 13H5v-2h14v2z"/>
+                                </svg>
+                            </button>
+                            <button class="demo-frame-button" id="demo-close">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="demo-frame-content">
+                        Web content goes here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Features</h2>
+                <p>Discover what makes FloatHub the perfect productivity companion</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                        </svg>
+                    </div>
+                    <h3>Quick Access</h3>
+                    <p>Access your favorite websites with a single click from anywhere on the web.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 17h18v2H3v-2zm0-7h18v5H3v-5zm0-4h18v2H3V6z"/>
+                        </svg>
+                    </div>
+                    <h3>Resizable Frames</h3>
+                    <p>Resize your web frames to perfectly fit your needs with simple mouse interactions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3>Auto-detection</h3>
+                    <p>Automatically detects website favicon and title for easy identification.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
+                        </svg>
+                    </div>
+                    <h3>Smooth Animations</h3>
+                    <p>Enjoy beautiful MacOS-inspired animations for a delightful user experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3>Website Management</h3>
+                    <p>Easily add, edit, or remove websites from your quick access toolbar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+                        </svg>
+                    </div>
+                    <h3>Auto-fit Window Size</h3>
+                    <p>Frames automatically adjust to window size changes for optimal viewing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="usage-guide" id="guide">
+        <div class="container">
+            <div class="section-title">
+                <h2>How to Use</h2>
+                <p>Follow these simple steps to get the most out of FloatHub</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-animate>
+                        <h3>Step 1: Install the Extension</h3>
+                        <p>Add FloatHub to your Chrome browser from the Chrome Web Store.</p>
+                        <p>Once installed, you'll see a new icon in your browser toolbar.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-animate>
+                        <h3>Step 2: Configure Your Websites</h3>
+                        <p>Click on the FloatHub icon in your toolbar to open the settings popup.</p>
+                        <p>Add your favorite websites by entering their URLs. FloatHub will automatically detect their favicons and titles.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-animate>
+                        <h3>Step 3: Using the Floating Icon</h3>
+                        <p>The FloatHub floating icon will appear on every webpage you visit.</p>
+                        <p>You can drag and position it anywhere on the screen for convenient access.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-animate>
+                        <h3>Step 4: Opening Websites</h3>
+                        <p>Click the floating icon to reveal your quick access toolbar.</p>
+                        <p>Select any website from the toolbar to open it in a resizable frame.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-animate>
+                        <h3>Step 5: Managing Frames</h3>
+                        <p>Resize the frame by dragging its corners to fit your needs.</p>
+                        <p>Move the frame by dragging its header bar.</p>
+                        <p>Use the "Open in new tab" button to open the current website in a full browser tab.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content" data-animate>
+                        <h3>Step 6: Minimizing and Closing</h3>
+                        <p>Click the minimize button for a smooth animation back to the floating icon.</p>
+                        <p>Click the close button to completely close the frame.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to common questions about FloatHub</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        Is FloatHub free to use?
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, FloatHub is completely free to use. We believe in providing useful tools without any cost barriers.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        How many websites can I add to FloatHub?
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>There is no strict limit on the number of websites you can add to FloatHub. However, for optimal performance and user experience, we recommend adding up to 15-20 websites.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        Can I use FloatHub on mobile devices?
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Currently, FloatHub is designed for desktop Chrome browsers only. We're exploring options for mobile browsers in future updates.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        Does FloatHub work on all websites?
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>FloatHub works on most websites. However, some highly secure websites with strict iframe policies might not display properly in the frames. In such cases, you can always use the "Open in new tab" feature.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        How do I report bugs or suggest features?
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>You can report bugs or suggest features by clicking the "Report Issue" button in the FloatHub settings popup. Alternatively, you can visit our GitHub repository to create an issue.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        Can I customize the appearance of FloatHub?
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We're planning to add theme customization in future updates. Currently, FloatHub uses a default blue theme that works well in most browsing environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                            </svg>
+                        </div>
+                        <div class="footer-logo-text">FloatHub</div>
+                    </div>
+                    <p>The ultimate floating workspace for quick access to your favorite websites, right in your browser.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#guide">User Guide</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="https://github.com/yourUsername/FloatHub" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/yourUsername/FloatHub/issues" target="_blank">Report Issues</a></li>
+                        <li><a href="https://github.com/yourUsername/FloatHub/wiki" target="_blank">Documentation</a></li>
+                        <li><a href="mailto:support@floathub.example.com">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 FloatHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive demo
+        const demoIcon = document.getElementById('demo-icon');
+        const demoToolbar = document.getElementById('demo-toolbar');
+        const demoFrame = document.getElementById('demo-frame');
+        const demoMinimize = document.getElementById('demo-minimize');
+        const demoClose = document.getElementById('demo-close');
+        const demoWebsite1 = document.getElementById('demo-website-1');
+        const demoWebsite2 = document.getElementById('demo-website-2');
+        const demoWebsite3 = document.getElementById('demo-website-3');
+
+        demoIcon.addEventListener('click', function() {
+            demoToolbar.classList.toggle('active');
+            if (demoFrame.classList.contains('active')) {
+                minimizeFrame();
+            }
+        });
+
+        demoWebsite1.addEventListener('click', function() {
+            openFrame('Search');
+            demoToolbar.classList.remove('active');
+        });
+
+        demoWebsite2.addEventListener('click', function() {
+            openFrame('Video');
+            demoToolbar.classList.remove('active');
+        });
+
+        demoWebsite3.addEventListener('click', function() {
+            openFrame('Email');
+            demoToolbar.classList.remove('active');
+        });
+
+        demoMinimize.addEventListener('click', minimizeFrame);
+        demoClose.addEventListener('click', closeFrame);
+
+        function openFrame(title) {
+            const titleEl = demoFrame.querySelector('.demo-frame-title span');
+            titleEl.textContent = title;
+            demoFrame.classList.add('active');
+        }
+
+        function minimizeFrame() {
+            demoFrame.classList.add('minimizing');
+            
+            setTimeout(() => {
+                demoFrame.classList.remove('active');
+                demoFrame.classList.remove('minimizing');
+                
+                // Flash the icon
+                demoIcon.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    demoIcon.style.transform = '';
+                }, 300);
+            }, 400);
+        }
+
+        function closeFrame() {
+            demoFrame.classList.remove('active');
+        }
+
+        // Animated timeline
+        const animateItems = document.querySelectorAll('[data-animate]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animateItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        // Accordion
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+                
+                // Close all accordions
+                accordionButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.nextElementSibling.style.maxHeight = null;
+                });
+                
+                // If it wasn't active, open it
+                if (!isActive) {
+                    this.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
