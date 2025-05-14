@@ -185,9 +185,9 @@ FloatHub is released under the MIT License. See the LICENSE file for details.
 
 ## 📞 Contact
 
-- **GitHub Repository**: [github.com/yourUsername/FloatHub](#)
-- **Bug Reports**: [github.com/yourUsername/FloatHub/issues](#)
-- **Email**: support@floathub.example.com
+- **GitHub Repository**: [github.com/logiurl/FloatHub](#)
+- **Bug Reports**: [github.com/logiurl/FloatHub/issues](#)
+- **Email**: support@floathub.logiurl.com
 
 ---
 
