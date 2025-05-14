@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "FloatHub",
+    "version": "1.0",
+    "description": "A floating hub for quick access to websites in resizable frames",
+    "permissions": [
+      "storage",
+      "tabs",
+      "activeTab",
+      "favicon"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+      }
+    },
+    "icons": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "css": ["content.css"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["images/*"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }

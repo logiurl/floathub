@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FloatHub</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>FloatHub Settings</h1>
+    <p>Manage your quick access websites or toggle the floating icon</p>
+    
+    <div class="toggle-container">
+      <label for="enable-floathub">Enable FloatHub</label>
+      <label class="switch">
+        <input type="checkbox" id="enable-floathub" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+    
+    <div class="websites-container">
+      <h2>Quick Access Websites</h2>
+      <div id="websites-list"></div>
+      
+      <div class="add-website">
+        <input type="text" id="website-url" placeholder="https://example.com">
+        <button id="add-website-btn">Add Website</button>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <button id="report-issue-btn">Report Issue</button>
+      <div class="version">FloatHub v1.0</div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
